@@ -6,7 +6,7 @@ services:
     image: wordpress
     restart: always
     ports:
-      - 8080:80
+      - 8081:80
     environment:
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_USER: wordpress
@@ -18,13 +18,13 @@ services:
   db:
     image: mariadb
     restart: always
-    ports:
-      - 33060:3306
+    #ports:
+     # - 33060:3306
     environment:
-      MYSQL_DATABASE: wordpress
-      MYSQL_USER: wordpress
-      MYSQL_PASSWORD: wordpress
-      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+      MARIADB_DATABASE: wordpress
+      MARIADB_USER: wordpress
+      MARIADB_PASSWORD: wordpress
+      MARIADB_ROOT_PASSWORD_HASH: "*0D0B5A6A8E7EB655506BAECBAC52CC027E4DC845"
     volumes:
       - db:/var/lib/mysql
 
